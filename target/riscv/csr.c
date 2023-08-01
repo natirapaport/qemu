@@ -508,7 +508,7 @@ static int aia_hmode32(CPURISCVState *env, int csrno)
 static RISCVException pmp(CPURISCVState *env, int csrno)
 {
     if (riscv_cpu_cfg(env)->pmp) {
-        if (csrno <= CSR_PMPCFG3) {
+        if (csrno <= CSR_PMPCFG6) {
             uint32_t reg_index = csrno - CSR_PMPCFG0;
 
             /* TODO: RV128 restriction check */
@@ -4369,6 +4369,8 @@ riscv_csr_operations csr_ops[CSR_TABLE_SIZE] = {
     [CSR_PMPCFG1]    = { "pmpcfg1",   pmp, read_pmpcfg,  write_pmpcfg  },
     [CSR_PMPCFG2]    = { "pmpcfg2",   pmp, read_pmpcfg,  write_pmpcfg  },
     [CSR_PMPCFG3]    = { "pmpcfg3",   pmp, read_pmpcfg,  write_pmpcfg  },
+    [CSR_PMPCFG4]    = { "pmpcfg4",   pmp, read_pmpcfg,  write_pmpcfg  },
+    [CSR_PMPCFG6]    = { "pmpcfg6",   pmp, read_pmpcfg,  write_pmpcfg  },
     [CSR_PMPADDR0]   = { "pmpaddr0",  pmp, read_pmpaddr, write_pmpaddr },
     [CSR_PMPADDR1]   = { "pmpaddr1",  pmp, read_pmpaddr, write_pmpaddr },
     [CSR_PMPADDR2]   = { "pmpaddr2",  pmp, read_pmpaddr, write_pmpaddr },
@@ -4385,6 +4387,22 @@ riscv_csr_operations csr_ops[CSR_TABLE_SIZE] = {
     [CSR_PMPADDR13]  = { "pmpaddr13", pmp, read_pmpaddr, write_pmpaddr },
     [CSR_PMPADDR14] =  { "pmpaddr14", pmp, read_pmpaddr, write_pmpaddr },
     [CSR_PMPADDR15] =  { "pmpaddr15", pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR16]   = { "pmpaddr16",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR17]   = { "pmpaddr17",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR18]   = { "pmpaddr18",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR19]   = { "pmpaddr19",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR20]   = { "pmpaddr20",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR21]   = { "pmpaddr21",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR22]   = { "pmpaddr22",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR23]   = { "pmpaddr23",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR24]   = { "pmpaddr24",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR25]   = { "pmpaddr25",  pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR26]  = { "pmpaddr26", pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR27]  = { "pmpaddr27", pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR28]  = { "pmpaddr28", pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR29]  = { "pmpaddr29", pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR30] =  { "pmpaddr30", pmp, read_pmpaddr, write_pmpaddr },
+    [CSR_PMPADDR31] =  { "pmpaddr31", pmp, read_pmpaddr, write_pmpaddr },
 
     /* Debug CSRs */
     [CSR_TSELECT]   =  { "tselect", debug, read_tselect, write_tselect },

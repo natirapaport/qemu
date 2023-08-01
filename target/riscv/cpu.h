@@ -90,7 +90,7 @@ typedef enum {
 
 #define MMU_USER_IDX 3
 
-#define MAX_RISCV_PMPS (16)
+#define MAX_RISCV_PMPS (32)
 
 #if !defined(CONFIG_USER_ONLY)
 #include "pmp.h"

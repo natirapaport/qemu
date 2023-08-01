@@ -175,10 +175,11 @@ void pmp_update_rule_addr(CPURISCVState *env, uint32_t pmp_index)
         }
         break;
 
-    case PMP_AMATCH_NA4:
-        sa = this_addr << 2; /* shift up from [xx:0] to [xx+2:2] */
-        ea = (sa + 4u) - 1u;
-        break;
+    /* NatiR - note that SweRV5x0 does not support NA4 because its PMP granurality is 64Bytes */
+    //case PMP_AMATCH_NA4:
+    //    sa = this_addr << 2; /* shift up from [xx:0] to [xx+2:2] */
+    //    ea = (sa + 4u) - 1u;
+    //    break;
 
     case PMP_AMATCH_NAPOT:
         pmp_decode_napot(this_addr, &sa, &ea);
